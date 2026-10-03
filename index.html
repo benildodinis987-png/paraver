@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Benildo Diocleciano Dinis | Portfólio</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#inicio">BD<span>.</span></a>
+  <nav>
+    <a href="#sobre">Sobre</a><a href="#experiencia">Experiência</a><a href="#competencias">Competências</a>
+    <a href="#projetos">Projetos</a><a href="#media">Média</a><a href="#contactos">Contactos</a>
+    <a class="cv-btn" href="cv.html">CV</a>
+    <button id="themeBtn" aria-label="Alternar tema">◐</button>
+  </nav>
+</header>
+
+<main>
+<section id="inicio" class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow">COMUNICAÇÃO • TECNOLOGIA • LIDERANÇA • IMPACTO</p>
+    <h1>Benildo<br><span>Diocleciano Dinis</span></h1>
+    <p class="lead">Comunicação social, mídia digital, liderança juvenil, audiovisual e desenvolvimento tecnológico.</p>
+    <div class="actions"><a class="primary" href="#projetos">Explorar trabalho</a><a class="secondary" href="cv.html">Ver currículo</a></div>
+    <div class="stats"><div><b>34</b><small>membros supervisionados</small></div><div><b>2021</b><small>início na TV</small></div><div><b>10+</b><small>áreas de formação/experiência</small></div></div>
+  </div>
+  <div class="hero-visual">
+    <div class="portrait-frame"><img id="coverImage" src="assets/capa.jpg" alt="Foto de Benildo"></div>
+    <div class="floating-card">Pemba · Cabo Delgado<br><strong>Moçambique</strong></div>
+  </div>
+</section>
+
+<section id="sobre" class="section">
+  <div class="section-head"><span>01</span><h2>Perfil</h2></div>
+  <div class="profile-grid">
+    <article class="glass"><h3>Resumo profissional</h3><p>Jovem profissional altamente dinâmico com sólida experiência em comunicação social (rádio e televisão), liderança juvenil, gestão de equipas e trabalho comunitário na província de Cabo Delgado. Fundador de iniciativas de mídia digital e plataformas tecnológicas, com atuação na produção de conteúdos, apresentação de programas e coordenação de projetos de impacto social. Combina competências técnicas de audiovisual com domínio de novas tecnologias.</p></article>
+    <article class="glass"><h3>Identidade profissional</h3><ul><li>Fundador e empreendedor digital</li><li>Comunicador, locutor e apresentador</li><li>Operador de câmera e produtor audiovisual</li><li>Desenvolvedor web e integrador de IA</li><li>Líder e coordenador comunitário</li></ul></article>
+  </div>
+</section>
+
+<section id="experiencia" class="section dark-section">
+  <div class="section-head"><span>02</span><h2>Experiência</h2></div>
+  <div class="timeline" id="experienceList"></div>
+</section>
+
+<section id="competencias" class="section">
+  <div class="section-head"><span>03</span><h2>Competências</h2></div>
+  <div class="card-grid">
+    <article class="card"><h3>Comunicação & Média</h3><p>Apresentação de TV, locução de rádio, moderação, reportagem de campo, câmera e grelhas de programação.</p></article>
+    <article class="card"><h3>Desenvolvimento & Tecnologia</h3><p>HTML, CSS, JavaScript, PHP, MySQL, Groq API, modelos Llama 3, M-Pesa e e-Mola.</p></article>
+    <article class="card"><h3>Design & Audiovisual</h3><p>Photoshop, Canva, Figma, InShot, DaVinci Resolve, UX Design e Branding.</p></article>
+    <article class="card"><h3>Liderança & Gestão</h3><p>Supervisão de 34 membros, decisão estratégica, projetos comunitários e facilitação de formações.</p></article>
+    <article class="card"><h3>Interpessoais</h3><p>Ética profissional, comunicação verbal, adaptabilidade, criatividade e trabalho sob pressão.</p></article>
+  </div>
+</section>
+
+<section id="projetos" class="section">
+  <div class="section-head"><span>04</span><h2>Projetos desenvolvidos</h2></div>
+  <div class="project-grid" id="projectList"></div>
+</section>
+
+<section id="media" class="section dark-section">
+  <div class="section-head"><span>05</span><h2>Vídeos & atividades</h2></div>
+  <p class="muted">Adicione links do YouTube ou Facebook no painel administrativo. Os vídeos podem ser visualizados dentro do portfólio.</p>
+  <div class="media-grid" id="mediaList"></div>
+</section>
+
+<section id="formacao" class="section">
+  <div class="section-head"><span>06</span><h2>Formação & participação</h2></div>
+  <div class="two-col">
+    <article class="glass"><h3>Formação</h3><div id="educationList"></div></article>
+    <article class="glass"><h3>Fóruns & congressos</h3><ul id="forumList"></ul></article>
+  </div>
+</section>
+
+<section id="idiomas" class="section">
+  <div class="section-head"><span>07</span><h2>Idiomas</h2></div>
+  <div class="language-grid" id="languageList"></div>
+</section>
+
+<section id="conquistas" class="section dark-section">
+  <div class="section-head"><span>08</span><h2>Conquistas</h2></div>
+  <div class="card-grid" id="achievementList"></div>
+</section>
+
+<section id="contactos" class="section contact-section">
+  <div class="section-head"><span>09</span><h2>Contactos</h2></div>
+  <div class="contact-grid">
+    <div><h3>Vamos conversar?</h3><p>Para convites profissionais, projetos, comunicação, tecnologia ou colaboração comunitária.</p></div>
+    <div class="contact-links">
+      <a href="tel:+258869017670">☎ +258 869 017 670</a>
+      <a href="mailto:benildodinis97@gmail.com">✉ benildodinis97@gmail.com</a>
+      <a id="facebookLink" href="#" target="_blank">f Facebook</a>
+      <a id="youtubeLink" href="#" target="_blank">▶ YouTube</a>
+      <a id="linkedinLink" href="#" target="_blank">in LinkedIn</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<button class="assistant-fab" id="assistantOpen">✦</button>
+<div class="assistant-panel" id="assistantPanel">
+  <div class="assistant-head"><strong>Assistente BD</strong><button id="assistantClose">×</button></div>
+  <div class="assistant-messages" id="assistantMessages"></div>
+  <form id="assistantForm"><input id="assistantInput" placeholder="Escreva a sua mensagem..." autocomplete="off"><button>Enviar</button></form>
+</div>
+<div id="lightbox" class="lightbox"><button id="lightboxClose">×</button><button id="prevBtn" class="nav-arrow left">‹</button><div id="lightboxContent"></div><button id="nextBtn" class="nav-arrow right">›</button></div>
+<script src="app.js"></script>
+</body>
+</html>

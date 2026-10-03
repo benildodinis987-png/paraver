@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Painel Administrativo | BD</title><link rel="stylesheet" href="styles.css"></head>
+<body class="admin"><header class="topbar"><a class="brand" href="index.html">BD<span>.</span></a><nav><a href="index.html">Ver site</a></nav></header>
+<main class="section"><div class="section-head"><span>ADMIN</span><h2>Painel de controlo</h2></div>
+<div class="card-grid">
+<article class="card"><h3>Pedidos de CV</h3><div id="requests"></div></article>
+<article class="card"><h3>Visitas neste navegador</h3><div id="analytics"></div></article>
+<article class="card"><h3>Perfil e capa</h3><label>URL da foto de capa<input id="cover" style="width:100%;padding:10px"></label><button onclick="saveCover()">Guardar</button><p class="muted">Para trocar ficheiros localmente, coloque-os na pasta assets. Numa versão com servidor, o upload será feito aqui.</p></article>
+</div>
+<section class="section" style="padding-left:0;padding-right:0"><div class="card"><h3>Adicionar vídeo</h3><input id="vtitle" placeholder="Título"><input id="vurl" placeholder="Link YouTube/Facebook"><input id="vdesc" placeholder="Descrição"><button onclick="addVideo()">Adicionar</button><div id="videos"></div></div></section>
+<section class="section" style="padding-left:0;padding-right:0"><div class="card"><h3>Adicionar projeto</h3><input id="ptitle" placeholder="Nome do projeto"><input id="purl" placeholder="Link do projeto"><input id="pimg" placeholder="Caminho da imagem, ex.: assets/meu-projeto.jpg"><select id="pstatus"><option>Em desenvolvimento</option><option>Em fase de teste</option><option>Em utilização</option></select><textarea id="pdesc" placeholder="Descrição"></textarea><button onclick="addProject()">Adicionar projeto</button></div></section>
+<p class="muted">Protótipo: o localStorage é específico deste navegador/dispositivo. Para pedidos reais de várias pessoas, aprovação centralizada e estatísticas globais, ligue este painel a um backend.</p>
+</main>
+<script>
+function data(){return JSON.parse(localStorage.getItem("bdPortfolio")||"null")||{experience:[],education:[],forums:[],languages:[],achievements:[],projects:[],media:[]}}
+function save(d){localStorage.setItem("bdPortfolio",JSON.stringify(d))}
+function render(){let r=JSON.parse(localStorage.getItem("cvRequests")||"[]");document.getElementById("requests").innerHTML=r.length?r.map((x,i)=>`<div class="card" style="margin:8px 0"><b>${x.name}</b><br>${x.contact}<br>${x.org}<br>${x.reason}<br><small>${x.date} · ${x.status}</small><br><button onclick="approve(${i})">Aprovar</button> <button onclick="reject(${i})">Rejeitar</button></div>`).join(""):"Sem pedidos";let v=JSON.parse(localStorage.getItem("visitLog")||"[]");document.getElementById("analytics").innerHTML=`Total registado: <b>${v.length}</b><br>Hoje: ${v.filter(x=>x.time.slice(0,10)==new Date().toISOString().slice(0,10)).length}<br>Nota: esta contagem é local neste protótipo.`;let d=data();document.getElementById("videos").innerHTML=d.media.map((x,i)=>`<p>${x.title} <button onclick="delVideo(${i})">×</button></p>`).join("")}
+function approve(i){let r=JSON.parse(localStorage.getItem("cvRequests")||"[]");r[i].status="aprovado";localStorage.setItem("cvRequests",JSON.stringify(r));render()}
+function reject(i){let r=JSON.parse(localStorage.getItem("cvRequests")||"[]");r[i].status="rejeitado";localStorage.setItem("cvRequests",JSON.stringify(r));render()}
+function addVideo(){let d=data();d.media.push({title:vtitle.value,url:vurl.value,description:vdesc.value});save(d);vtitle.value=vurl.value=vdesc.value="";render()}
+function delVideo(i){let d=data();d.media.splice(i,1);save(d);render()}
+function addProject(){let d=data();d.projects.push({name:ptitle.value,desc:pdesc.value,status:pstatus.value,url:purl.value,image:pimg.value});save(d);alert("Projeto adicionado.");location.reload()}
+function saveCover(){localStorage.setItem("bdSettings",JSON.stringify({...JSON.parse(localStorage.getItem("bdSettings")||"{}"),cover:cover.value}));alert("Guardado")}
+cover.value=(JSON.parse(localStorage.getItem("bdSettings")||"{}").cover||"");render();
+</script></body></html>
